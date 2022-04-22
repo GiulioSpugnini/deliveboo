@@ -23,5 +23,17 @@ class UserSeeder extends Seeder
         $user->address = 'Via cicci 44';
 
         $user->save();
+
+        $user = new User();
+        $user->is_admin = 0;
+
+        $user->name = 'Carlo';
+        $user->last_name = 'Carletto';
+        $user->password = bcrypt('password');
+        $user->number = '333333323';
+        $user->email = 'carlo@user.com';
+        $user->address = 'Via carli 44';
+
+        $user->save();
     }
 }
