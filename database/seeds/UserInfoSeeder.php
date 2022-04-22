@@ -14,7 +14,7 @@ class UserInfoSeeder extends Seeder
 
     public function run()
     {
-        $user_ids = User::pluck('id')->toArray();
+        $user_ids = User::orderBy('id', 'ASC')->pluck('id')->toArray();
         $users = array();
         foreach ($user_ids as $user_id) {
             $users[] =
