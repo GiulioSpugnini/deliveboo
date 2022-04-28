@@ -10,4 +10,8 @@ class User_info extends Model
     {
         return $this->belongsTo('App\User');
     }
+    public function businesses()
+    {
+        return $this->hasMany('App\Models\Business');
+    }
 }

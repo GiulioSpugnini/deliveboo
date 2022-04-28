@@ -27,6 +27,9 @@ class CreateProductsTable extends Migration
             $table->unsignedBigInteger('shopping_cart_id')->nullable();
             $table->foreign('shopping_cart_id')->references('id')->on('shopping_cart')->after('id')->onDelete('set null');
 
+            $table->unsignedBigInteger('business_id')->nullable();
+            $table->foreign('business_id')->references('id')->on('businesses')->onDelete('set null');
+
             $table->timestamps();
         });
     }
@@ -39,9 +42,11 @@ class CreateProductsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('products', function (Blueprint $table) {
-            $table->dropForeign('product_id_foreign');
+            $table->dropForeign('products_shopping_cart_id_foreign');
+            $table->dropColumn('shopping_cart_id');
 
-            $table->dropColumn('product_id');
+            $table->dropForeign('products_business_id_foreign');
+            $table->dropColumn('business_id');
         });
     }
 }
