@@ -25,10 +25,11 @@ class CreateProductsTable extends Migration
             $table->boolean('vegetarian', 0);
 
             $table->unsignedBigInteger('shopping_cart_id')->nullable();
-            $table->foreign('shopping_cart_id')->references('id')->on('shopping_cart')->after('id')->onDelete('set null');
+            $table->foreign('shopping_cart_id')->references('id')->on('shopping_cart')->onDelete('set null');
 
             $table->unsignedBigInteger('business_id')->nullable();
             $table->foreign('business_id')->references('id')->on('businesses')->onDelete('set null');
+
 
             $table->timestamps();
         });

@@ -14,4 +14,12 @@ class Business extends Model
     {
         return $this->belongsTo('App\Models\User_info');
     }
+    public function category()
+    {
+        return $this->belongsTo('App\Models\Category');
+    }
+    public function type()
+    {
+        return $this->belongsTo('App\Models\Type');
+    }
 }
