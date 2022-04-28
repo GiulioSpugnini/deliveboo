@@ -14,4 +14,8 @@ class Product extends Model
     {
         return $this->belongsTo('App\Models\Business');
     }
+    public function singleOrder()
+    {
+        return $this->hasOne('App\Models\Single_Order');
+    }
 }
