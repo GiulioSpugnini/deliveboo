@@ -48,4 +48,8 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\Models\Shopping_session');
     }
+    public function userPayments()
+    {
+        return $this->hasMany('App\Models\User_payment');
+    }
 }
