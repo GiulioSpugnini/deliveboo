@@ -44,4 +44,8 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\Models\Shopping_cart');
     }
+    public function shoppingSession()
+    {
+        return $this->hasOne('App\Models\Shopping_session');
+    }
 }
