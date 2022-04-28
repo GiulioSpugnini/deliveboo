@@ -10,4 +10,8 @@ class Order_total extends Model
     {
         return $this->hasMany('App\Models\Single_Order');
     }
+    public function paymentDetail()
+    {
+        return $this->belongsTo('App\Models\Payment_detail');
+    }
 }

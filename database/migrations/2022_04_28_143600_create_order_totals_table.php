@@ -15,8 +15,13 @@ class CreateOrderTotalsTable extends Migration
     {
         Schema::create('order_totals', function (Blueprint $table) {
             $table->id();
+
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
+
+            $table->unsignedBigInteger('payment_detail_id')->nullable();
+            $table->foreign('payment_detail_id')->references('id')->on('payment_details')->onDelete('set null');
+
             $table->bigInteger('total');
             $table->timestamps();
         });
@@ -32,6 +37,9 @@ class CreateOrderTotalsTable extends Migration
         Schema::dropIfExists('order_totals', function (Blueprint $table) {
             $table->dropForeign('order_total_user_id_foreign');
             $table->dropColumn('user_id');
+
+            $table->dropForeign('order_total_payment_detail_id_foreign');
+            $table->dropColumn('payment_detail_id');
         });
     }
 }
